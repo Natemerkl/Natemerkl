@@ -1,31 +1,41 @@
 <div align="center">
 
-# Building AI-powered inventory automation for retail.
+# Shipped a live AI inventory SaaS. Building the open-source infrastructure behind it.
 
-**StockSyncAI** · Invoice OCR pipelines · SaaS infrastructure · Developer tooling
+[![StockSyncAI — Live Product](https://img.shields.io/badge/StockSyncAI-Live%20Product-3ECF8E?style=flat&logoColor=white)](https://stocksyncai.com)
 
 </div>
 
 ---
 
-### What I'm shipping
+### The product — StockSyncAI
 
-I build backend-heavy systems that automate the tedious parts of running a retail business — supplier invoice processing, multi-source inventory sync, ERP data pipelines. Right now that means:
+**[stocksyncai.com](https://stocksyncai.com)** — AI-powered inventory management built for Ethiopian businesses. Live, priced, and serving 500+ businesses across Ethiopia.
 
-- **StockSyncAI** — AI inventory sync engine for retail. Imports multi-supplier Excel/CSV templates, normalizes product data with GPT-4o, and commits atomically to PostgreSQL. Handles conflict resolution across suppliers.
-- **Invoice OCR Pipeline** — FastAPI service that extracts structured JSON from supplier invoices using Google Vision + GPT-4o. Built for retail and wholesale ops teams replacing manual data entry.
-- **OCR Document Toolkit** — Unified Python library wrapping Google Vision, Tesseract, and EasyOCR behind one interface. Adapter pattern. Swappable backends, consistent output.
+Ethiopian retail runs on spreadsheets. StockSyncAI replaces them with real-time multi-warehouse tracking, AI demand forecasting, OCR receipt scanning with Amharic and Afaan Oromoo support, theft detection, and full local tax compliance — ETR, VAT, WHT — at up to 80% less than international alternatives.
+
+| Plan | Price | Target |
+|------|-------|--------|
+| Free | ETB 0 | Micro businesses |
+| Starter | ETB 499/mo | Small businesses with tax compliance |
+| Pro | ETB 1,299/mo | Growing businesses — multi-warehouse, AI features |
+| Enterprise | ETB 3,999/mo | Large enterprises — unlimited users, full compliance |
+
+Built from scratch. Designed for low-bandwidth environments, local currency (ETB), local tax rules, and local languages. Not a fork of an international tool — a ground-up system designed around how Ethiopian retail actually works.
 
 ---
 
-### Signature projects
+### Open-source infrastructure extracted from the platform
+
+The hard problems StockSyncAI solved in production are becoming standalone tools:
 
 | Project | What it does |
 |---------|-------------|
-| [`stocksync-ai`](https://github.com/Natemerkl/stocksync-ai) | Atomic inventory sync engine — multi-supplier, AI normalization, rollback-safe PostgreSQL transactions |
-| [`invoice-ocr-pipeline`](https://github.com/Natemerkl/invoice-ocr-pipeline) | FastAPI + Google Vision + GPT-4o → structured invoice JSON. Async job queue, webhook delivery |
-| [`ocr-document-toolkit`](https://github.com/Natemerkl/ocr-document-toolkit) | Python CLI + library. Unified adapter over Google Vision / Tesseract / EasyOCR |
-| [`saas-infra-kit`](https://github.com/Natemerkl/saas-infra-kit) | Next.js 14 SaaS boilerplate — Supabase auth, Stripe billing, multi-tenancy, RLS, CI/CD |
+| [`invoice-ocr-pipeline`](https://github.com/Natemerkl/invoice-ocr-pipeline) | FastAPI service — extracts structured JSON from supplier invoices via OCR + GPT-4o. Async jobs, webhook delivery |
+| [`stocksync-engine`](https://github.com/Natemerkl/stocksync-ai) | The sync engine: multi-supplier import, AI product normalization, atomic PostgreSQL transactions, conflict resolution |
+| [`ocr-document-toolkit`](https://github.com/Natemerkl/ocr-document-toolkit) | Unified Python CLI + library over Google Vision / Tesseract / EasyOCR — one interface, swappable backends |
+| [`saas-infra-kit`](https://github.com/Natemerkl/saas-infra-kit) | Next.js 14 + Supabase SaaS boilerplate — auth, Stripe billing, multi-tenancy, RLS policies, CI/CD |
+| [`pg-sync-utils`](https://github.com/Natemerkl/pg-sync-utils) | PostgreSQL patterns for SaaS — audit logs, soft deletes, updated_at triggers, RLS templates |
 
 ---
 
@@ -61,54 +71,41 @@ I build backend-heavy systems that automate the tedious parts of running a retai
 
 ---
 
-### Architecture principles
+### What building a market-specific SaaS teaches you
 
-- **Atomic or nothing** — if a sync touches 500 rows and row 300 fails, nothing commits. No partial state.
-- **Observable** — every job has a status, a log, and a failure reason. Silent failures are bugs.
-- **Swappable** — OCR backend, AI model, storage layer. Nothing hardcoded to a vendor.
+Shipping StockSyncAI meant solving problems international tools ignore entirely:
+
+- **Localization at the data layer** — ETB currency, Ethiopian tax rules, and Amharic character sets enforced in the database, not patched in the UI
+- **Offline-tolerant sync** — unreliable connectivity means sync conflicts are a first-class problem, not an edge case
+- **Tax compliance as infrastructure** — ETR, VAT, and WHT rules baked into the transaction model from day one, not bolted on later
+- **Multi-language OCR** — scanning receipts in Amharic script required custom preprocessing pipelines beyond standard API calls
+
+These are the real engineering problems the open-source repos above are built to solve.
 
 ---
 
 ### Currently building
+
 ```
-[ Active ]  stocksync-ai         — conflict resolution + dry-run diff API
-[ Active ]  invoice-ocr-pipeline — async job queue + webhook delivery
-[ Soon   ]  pg-sync-utils        — PostgreSQL patterns for SaaS
-[ Soon   ]  ai-data-pipeline     — stage-based async document processing
+[ Shipped ]  stocksyncai.com      — live, 500+ Ethiopian businesses
+[ Active  ]  invoice-ocr-pipeline — async job queue + webhook delivery
+[ Active  ]  stocksync-engine     — open-source sync engine extraction
+[ Soon    ]  pg-sync-utils        — PostgreSQL SaaS patterns
+[ Soon    ]  ai-data-pipeline     — stage-based document processing framework
 ```
 
 ---
 
 ### Let's talk
 
-Building something in **retail tech**, **SaaS infrastructure**, or **AI document processing**?
+Building in **emerging market tech**, **AI document processing**, **SaaS infrastructure**, or **retail automation**?
 
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:YOUR_EMAIL_HERE)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/YOUR_LINKEDIN)
-[![X](https://img.shields.io/badge/X-000000?style=flat&logo=x&logoColor=white)](https://x.com/YOUR_X_HANDLE)
+[![StockSyncAI](https://img.shields.io/badge/Product-stocksyncai.com-3ECF8E?style=flat)](https://stocksyncai.com)
+[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:natemerkl@gmail.com)
+[![X](https://img.shields.io/badge/X-000000?style=flat&logo=x&logoColor=white)](https://x.com/natemerkl)
 
 ---
 
 <div align="center">
-<sub>Principal Architect · StockSyncAI · Amsterdam</sub>
+<sub>Founder · StockSyncAI · Shipping from Ethiopia & Amsterdam</sub>
 </div>
-```
-
-Scroll to the bottom, click **"Commit changes"**, write the commit message:
-```
-docs: add profile README with projects and stack
-```
-
-Click **Commit changes**.
-
----
-
-## Step 4 — Set the repo description
-
-This is the one-liner that appears under the repo name everywhere on GitHub.
-
-In your `Natemerkl` repo, look for the **"About"** section on the right side. Click the **gear icon ⚙** next to it.
-
-**Description field — paste this exactly:**
-```
-GitHub profile · Building AI inventory automation for retail
