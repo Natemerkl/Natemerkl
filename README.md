@@ -1,111 +1,44 @@
 <div align="center">
 
-# Shipped a live AI inventory SaaS. Building the open-source infrastructure behind it.
+# Nate Merkl
 
-[![StockSyncAI — Live Product](https://img.shields.io/badge/StockSyncAI-Live%20Product-3ECF8E?style=flat&logoColor=white)](https://stocksyncai.com)
+### Solo developer at Suqnet
+
+[Suqnet website](https://suqnet.com) · [Open Suqnet](https://app.suqnet.com/auth) · [iPhone app](https://apps.apple.com/tr/app/suqnet/id6791631997)
 
 </div>
 
 ---
 
-### The product — StockSyncAI
+## Building Suqnet
 
-**[stocksyncai.com](https://stocksyncai.com)** — AI-powered inventory management built for Ethiopian businesses. Live, priced, and serving 500+ businesses across Ethiopia.
+[Suqnet](https://suqnet.com) is the inventory, POS, and business-management workspace I am building for Ethiopian shops. It keeps sales, stock, cash, expenses, customer credit, and reports in one place.
 
-Ethiopian retail runs on spreadsheets. StockSyncAI replaces them with real-time multi-warehouse tracking, AI demand forecasting, OCR receipt scanning with Amharic and Afaan Oromoo support, theft detection, and full local tax compliance — ETR, VAT, WHT — at up to 80% less than international alternatives.
+The product starts where a lot of shop work already starts: with a photo. A shop owner can photograph a receipt, invoice, or stock list, review the lines, correct anything that is wrong, and then choose whether it becomes inventory, a sale, or an expense. Nothing is saved before that review.
 
-| Plan | Price | Target |
-|------|-------|--------|
-| Free | ETB 0 | Micro businesses |
-| Starter | ETB 499/mo | Small businesses with tax compliance |
-| Pro | ETB 1,299/mo | Growing businesses — multi-warehouse, AI features |
-| Enterprise | ETB 3,999/mo | Large enterprises — unlimited users, full compliance |
+Suqnet runs in the browser, and the [iPhone app](https://apps.apple.com/tr/app/suqnet/id6791631997) is available now. Android is still on the way.
 
-Built from scratch. Designed for low-bandwidth environments, local currency (ETB), local tax rules, and local languages. Not a fork of an international tool — a ground-up system designed around how Ethiopian retail actually works.
+## The work behind it
 
----
+I build the whole product: the customer-facing interface, the API and data model, document intake, deployment, and the small operational details that decide whether shop software gets used after the first week.
 
-### Open-source infrastructure extracted from the platform
+The hard part is rarely putting a model behind an upload button. A receipt is an unreliable document: names are shortened, quantities are ambiguous, supplier formats change, and a clean-looking scan can still return the wrong order. I build the review step and data boundaries around that reality.
 
-The hard problems StockSyncAI solved in production are becoming standalone tools:
+My work is strongest where business workflows meet messy documents and imperfect connectivity:
 
-| Project | What it does |
-|---------|-------------|
-| [`invoice-ocr-pipeline`](https://github.com/Natemerkl/invoice-ocr-pipeline) | FastAPI service — extracts structured JSON from supplier invoices via OCR + GPT-4o. Async jobs, webhook delivery |
-| [`stocksync-engine`](https://github.com/Natemerkl/stocksync-ai) | The sync engine: multi-supplier import, AI product normalization, atomic PostgreSQL transactions, conflict resolution |
-| [`ocr-document-toolkit`](https://github.com/Natemerkl/ocr-document-toolkit) | Unified Python CLI + library over Google Vision / Tesseract / EasyOCR — one interface, swappable backends |
-| [`saas-infra-kit`](https://github.com/Natemerkl/saas-infra-kit) | Next.js 14 + Supabase SaaS boilerplate — auth, Stripe billing, multi-tenancy, RLS policies, CI/CD |
-| [`pg-sync-utils`](https://github.com/Natemerkl/pg-sync-utils) | PostgreSQL patterns for SaaS — audit logs, soft deletes, updated_at triggers, RLS templates |
+| Area | What I work on |
+| --- | --- |
+| Document AI and OCR | Receipt and invoice extraction, page structure, review flows, and data that can be traced back to the source document. |
+| Inventory and retail systems | Product records, stock movement, sales, cash, expenses, customer credit, staff roles, and reporting. |
+| Full-stack product engineering | TypeScript, React, Next.js, Python, FastAPI, PostgreSQL, Supabase, Redis, Docker, and GitHub Actions. |
+| Local product constraints | Mobile-first workflows, low-bandwidth use, Ethiopian business context, and decisions that remain understandable to the person running the shop. |
 
----
+## How I make product decisions
 
-### Stack
+I do not choose infrastructure from a feature checklist. I start with the record that has to stay correct, the person who has to correct it, and the failure that would cost them money.
 
-**Backend**
+That is why Suqnet asks for confirmation before a photo changes stock. OCR output needs structure, review, and extracted text that stays tied to the document. The useful question is whether a shop owner can trust the result on a busy day.
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+## Find me
 
-**Frontend**
-
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white)
-![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
-
-**AI / Automation**
-
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white)
-![Google Cloud](https://img.shields.io/badge/Google_Vision-4285F4?style=flat&logo=google-cloud&logoColor=white)
-
-**Data**
-
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat&logo=redis&logoColor=white)
-
-**Infrastructure**
-
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=github-actions&logoColor=white)
-
----
-
-### What building a market-specific SaaS teaches you
-
-Shipping StockSyncAI meant solving problems international tools ignore entirely:
-
-- **Localization at the data layer** — ETB currency, Ethiopian tax rules, and Amharic character sets enforced in the database, not patched in the UI
-- **Offline-tolerant sync** — unreliable connectivity means sync conflicts are a first-class problem, not an edge case
-- **Tax compliance as infrastructure** — ETR, VAT, and WHT rules baked into the transaction model from day one, not bolted on later
-- **Multi-language OCR** — scanning receipts in Amharic script required custom preprocessing pipelines beyond standard API calls
-
-These are the real engineering problems the open-source repos above are built to solve.
-
----
-
-### Currently building
-
-```
-[ Shipped ]  stocksyncai.com      — live, 500+ Ethiopian businesses
-[ Active  ]  invoice-ocr-pipeline — async job queue + webhook delivery
-[ Active  ]  stocksync-engine     — open-source sync engine extraction
-[ Soon    ]  pg-sync-utils        — PostgreSQL SaaS patterns
-[ Soon    ]  ai-data-pipeline     — stage-based document processing framework
-```
-
----
-
-### Let's talk
-
-Building in **emerging market tech**, **AI document processing**, **SaaS infrastructure**, or **retail automation**?
-
-[![StockSyncAI](https://img.shields.io/badge/Product-stocksyncai.com-3ECF8E?style=flat)](https://stocksyncai.com)
-[![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:natemerkl@gmail.com)
-[![X](https://img.shields.io/badge/X-000000?style=flat&logo=x&logoColor=white)](https://x.com/natemerkl)
-
----
-
-<div align="center">
-<sub>Founder · StockSyncAI · Shipping from Ethiopia & Amsterdam</sub>
-</div>
+[Suqnet](https://suqnet.com) · [Web app](https://app.suqnet.com/auth) · [iPhone app](https://apps.apple.com/tr/app/suqnet/id6791631997) · [Email](mailto:natemerkl@gmail.com) · [X](https://x.com/natemerkl)
