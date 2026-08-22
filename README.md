@@ -2,43 +2,19 @@
 
 # Nate Merkl
 
-### Solo developer at Suqnet
+Solo developer building [Suqnet](https://suqnet.com), inventory, POS, and business software for Ethiopian shops.
 
-[Suqnet website](https://suqnet.com) · [Open Suqnet](https://app.suqnet.com/auth) · [iPhone app](https://apps.apple.com/tr/app/suqnet/id6791631997) · [Android app](https://play.google.com/store/apps/details?id=com.suqnet.app&pcampaignid=web_share)
+[Website](https://suqnet.com) · [Web app](https://app.suqnet.com/auth) · [iPhone](https://apps.apple.com/tr/app/suqnet/id6791631997) · [Android](https://play.google.com/store/apps/details?id=com.suqnet.app&pcampaignid=web_share) · [Email](mailto:natemerkl@gmail.com)
+
+<br />
+
+<img alt="TypeScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="32" height="32" />
+<img alt="JavaScript" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="32" height="32" />
+<img alt="Python" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="32" height="32" />
+<img alt="React" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" width="32" height="32" />
+<img alt="Next.js" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" width="32" height="32" />
+<img alt="FastAPI" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg" width="32" height="32" />
+<img alt="PostgreSQL" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="32" height="32" />
+<img alt="Supabase" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" width="32" height="32" />
 
 </div>
-
----
-
-## Building Suqnet
-
-[Suqnet](https://suqnet.com) is the inventory, POS, and business-management workspace I am building for Ethiopian shops. It keeps sales, stock, cash, expenses, customer credit, and reports in one place.
-
-The product starts where a lot of shop work already starts: with a photo. A shop owner can photograph a receipt, invoice, or stock list, review the lines, correct anything that is wrong, and then choose whether it becomes inventory, a sale, or an expense. Nothing is saved before that review.
-
-Suqnet runs in the browser and on mobile: [iPhone](https://apps.apple.com/tr/app/suqnet/id6791631997) and [Android](https://play.google.com/store/apps/details?id=com.suqnet.app&pcampaignid=web_share).
-
-## The work behind it
-
-I build the whole product: the customer-facing interface, the API and data model, document intake, deployment, and the small operational details that decide whether shop software gets used after the first week.
-
-The hard part is rarely putting a model behind an upload button. A receipt is an unreliable document: names are shortened, quantities are ambiguous, supplier formats change, and a clean-looking scan can still return the wrong order. I build the review step and data boundaries around that reality.
-
-My work is strongest where business workflows meet messy documents and imperfect connectivity:
-
-| Area | What I work on |
-| --- | --- |
-| Document AI and OCR | Receipt and invoice extraction, page structure, review flows, and data that can be traced back to the source document. |
-| Inventory and retail systems | Product records, stock movement, sales, cash, expenses, customer credit, staff roles, and reporting. |
-| Full-stack product engineering | TypeScript, React, Next.js, Python, FastAPI, PostgreSQL, Supabase, Redis, Docker, and GitHub Actions. |
-| Local product constraints | Mobile-first workflows, low-bandwidth use, Ethiopian business context, and decisions that remain understandable to the person running the shop. |
-
-## How I make product decisions
-
-I do not choose infrastructure from a feature checklist. I start with the record that has to stay correct, the person who has to correct it, and the failure that would cost them money.
-
-That is why Suqnet asks for confirmation before a photo changes stock. OCR output needs structure, review, and extracted text that stays tied to the document. The useful question is whether a shop owner can trust the result on a busy day.
-
-## Find me
-
-[Suqnet](https://suqnet.com) · [Web app](https://app.suqnet.com/auth) · [iPhone app](https://apps.apple.com/tr/app/suqnet/id6791631997) · [Android app](https://play.google.com/store/apps/details?id=com.suqnet.app&pcampaignid=web_share) · [Email](mailto:natemerkl@gmail.com) · [X](https://x.com/natemerkl)
