@@ -4,7 +4,7 @@
 
 ### Solo developer at Suqnet
 
-[Suqnet website](https://suqnet.com) · [Open Suqnet](https://app.suqnet.com/auth) · [iPhone app](https://apps.apple.com/tr/app/suqnet/id6791631997)
+[Suqnet website](https://suqnet.com) · [Open Suqnet](https://app.suqnet.com/auth) · [iPhone app](https://apps.apple.com/tr/app/suqnet/id6791631997) · [Android app](https://play.google.com/store/apps/details?id=com.suqnet.app&pcampaignid=web_share)
 
 </div>
 
@@ -16,7 +16,7 @@
 
 The product starts where a lot of shop work already starts: with a photo. A shop owner can photograph a receipt, invoice, or stock list, review the lines, correct anything that is wrong, and then choose whether it becomes inventory, a sale, or an expense. Nothing is saved before that review.
 
-Suqnet runs in the browser, and the [iPhone app](https://apps.apple.com/tr/app/suqnet/id6791631997) is available now. Android is still on the way.
+Suqnet runs in the browser and on mobile: [iPhone](https://apps.apple.com/tr/app/suqnet/id6791631997) and [Android](https://play.google.com/store/apps/details?id=com.suqnet.app&pcampaignid=web_share).
 
 ## The work behind it
 
@@ -41,4 +41,4 @@ That is why Suqnet asks for confirmation before a photo changes stock. OCR outpu
 
 ## Find me
 
-[Suqnet](https://suqnet.com) · [Web app](https://app.suqnet.com/auth) · [iPhone app](https://apps.apple.com/tr/app/suqnet/id6791631997) · [Email](mailto:natemerkl@gmail.com) · [X](https://x.com/natemerkl)
+[Suqnet](https://suqnet.com) · [Web app](https://app.suqnet.com/auth) · [iPhone app](https://apps.apple.com/tr/app/suqnet/id6791631997) · [Android app](https://play.google.com/store/apps/details?id=com.suqnet.app&pcampaignid=web_share) · [Email](mailto:natemerkl@gmail.com) · [X](https://x.com/natemerkl)
